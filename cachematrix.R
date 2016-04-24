@@ -1,7 +1,8 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Defines two functions that allow you to use a special matrix object 
+## that can cache it's own inverse
 
-## Write a short comment describing this function
+
+## This function creates the special matrix object that caches its own inverse
 
 makeCacheMatrix <- function(x = matrix()) {
 	p_inverse <- NULL
@@ -18,13 +19,15 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## This function computes the inverse of one of our special]
+## matrix objects and caches it.
+## If the inverse is already cached, it retreives it 
 
 cacheSolve <- function(x, ...) {
 	p_inverse <- x$getInverse()
 	if(!is.null(p_inverse)) {
 		message("Getting cached data")
-		return(inverse)
+		return(p_inverse)
 	}
 	data <- x$get()
 	p_inverse <- solve(data, ...)
